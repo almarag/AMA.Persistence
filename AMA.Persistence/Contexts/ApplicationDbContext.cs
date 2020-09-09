@@ -9,6 +9,8 @@
         public DbSet<PersonModel> Persons { get; set; }
         public DbSet<GroupModel> Groups { get; set; }
         public DbSet<UserGroupModel> UserGroups { get; set; }
+        public DbSet<PermissionModel> Permissions { get; set; }
+        public DbSet<GroupPermissionModel> GroupPermissions { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
                     : base(options)
@@ -28,6 +30,17 @@
                 .HasOne(bc => bc.GroupModel)
                 .WithMany(c => c.UserGroups)
                 .HasForeignKey(bc => bc.GroupId);
+
+            modelBuilder.Entity<GroupPermissionModel>()
+                .HasKey(bc => new { bc.GroupId, bc.PermissionId });
+            modelBuilder.Entity<GroupPermissionModel>()
+                .HasOne(bc => bc.GroupModel)
+                .WithMany(b => b.GroupPermissions)
+                .HasForeignKey(bc => bc.GroupId);
+            modelBuilder.Entity<GroupPermissionModel>()
+                .HasOne(bc => bc.PermissionModel)
+                .WithMany(c => c.GroupPermissions)
+                .HasForeignKey(bc => bc.PermissionId);
         }
     }
 }

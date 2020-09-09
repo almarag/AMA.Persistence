@@ -2,10 +2,10 @@
 {
     using System.Collections.Generic;
 
-    public class GroupModel : Model
+    public class PermissionModel : Model
     {
         public string Name { get; set; }
-        public ICollection<UserGroupModel> UserGroups { get; set; }
+        public string Description { get; set; }
         public ICollection<GroupPermissionModel> GroupPermissions { get; set; }
     }
 }

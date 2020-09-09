@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace AMA.Persistence.Models
+﻿namespace AMA.Persistence.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class UserModel : Model
     {
         public string UserName { get; set; }

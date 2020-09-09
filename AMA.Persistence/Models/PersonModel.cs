@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AMA.Persistence.Models
+﻿namespace AMA.Persistence.Models
 {
     public class PersonModel : Model
     {
